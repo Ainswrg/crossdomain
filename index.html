@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Adrcid: <span style="font-weight: bold;" id="adrcid-value">-</span></p>
+
+    <script>
+        window.top.postMessage('getAdrcid', '*');
+        // console.log("window.top: ", window.top);
+
+        window.addEventListener('message', (event) => {
+                if (event.data && event.data.response === 'adrcid') {
+                    const adrcidValue = event.data.value;
+                    document.getElementById('adrcid-value').textContent = adrcidValue;
+                }
+            });
+    </script>
+</body>
+</html>
