@@ -3,21 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Cross Domain Iframe</title>
 </head>
 <body>
-    <p>Adrcid: <span style="font-weight: bold;" id="adrcid-value">-</span></p>
-
-    <script>
-        window.top.postMessage('getAdrcid', '*');
-        // console.log("window.top: ", window.top);
-
-        window.addEventListener('message', (event) => {
-                if (event.data && event.data.response === 'adrcid') {
-                    const adrcidValue = event.data.value;
-                    document.getElementById('adrcid-value').textContent = adrcidValue;
-                }
-            });
-    </script>
+    <h1 id="title"></h1>
+    <script src="./index.js"></script>
 </body>
 </html>
